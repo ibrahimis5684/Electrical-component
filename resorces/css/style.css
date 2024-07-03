@@ -1,0 +1,556 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+:root {
+    --bg-color: #EEEEEE;
+    --th-color: #33AAEE;
+    --th-hov-color: #2c92cc;
+    --text-color: #4B534E;
+    --text-f-color: #ffffff;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: var(--bg-color);
+}
+
+/* Reusable components */
+.row {
+    padding: 0 10%;
+}
+
+ul li {
+    list-style: none;
+}
+
+.line {
+    width: 100%;
+    height: .1rem;
+    background: var(--text-color);
+    margin-top: 1rem;
+}
+
+.btn {
+    font-size: 2rem;
+    color: var(--text-f-color);
+    background: var(--th-color);
+    border: none;
+    outline: none;
+    padding: .5rem 5rem;
+    border-radius: .3rem;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+
+.btn:hover {
+    background: var(--th-hov-color);
+}
+
+.btn:active {
+    background: var(--th-color);
+}
+
+.alert-box {
+    background: var(--text-f-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%;
+    padding: 1rem;
+    border-radius: .3rem;
+    box-shadow: 19px 20px 32px -4px rgba(0,0,0,0.1);
+}
+
+/* Header section */
+nav {
+    background: var(--text-f-color);
+    padding: 1.5rem 0;
+}
+
+nav .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-png-box {
+    font-size: 2.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo-png-box a {
+    text-decoration: none;
+}
+
+.logo-png-box .logo {
+    color: var(--text-color);
+}
+
+.logo-png-box .sub-logo {
+    color: var(--th-color);
+    margin-left: 1rem;
+}
+
+.menu-box ul {
+    display: flex;
+    align-items: center;
+}
+
+.menu-box ul li {
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+/* Section */
+section {
+    height: auto;
+    padding: 2rem 0;
+}
+
+section .main-box,
+section .file-detail-box {
+    text-align: center;
+    width: 60%;
+    background: var(--text-f-color);
+    margin: 5rem auto;
+    padding: 5rem;
+    border-radius: .9rem;
+    box-shadow: 19px 20px 32px -4px rgba(0,0,0,0.1);
+}
+
+section .file-detail-box {
+    display: none;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--text-color);
+}
+
+.main-box form,
+.file-detail-box form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+
+form input[type="search"],
+form .detailInput {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.6rem;
+    padding: 0 1rem;
+    border: .2rem solid var(--th-color);
+    outline: none;
+    border-radius: .3rem;
+    margin-top: 1rem;
+    text-transform: capitalize;
+}
+
+form input[type="submit"] {
+    margin-top: 2rem;
+    width: 10rem;
+    height: 3rem;
+    background: var(--th-color);
+    font-size: 1.6rem;
+    color: var(--text-f-color);
+    border: none;
+    outline: none;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+form .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+form input[type="submit"]:hover {
+    background: var(--th-hov-color);
+}
+
+form input[type="submit"]:active {
+    background: var(--th-color);
+}
+
+.create-new-file-btn {
+    width: auto;
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    color: var(--text-f-color);
+    background: var(--th-color);
+    outline: none;
+    border: none;
+    padding: .7rem 1rem;
+    margin: 5rem auto;
+    cursor: pointer;
+    border-radius: .3rem;
+    outline: .1rem dashed var(--text-color);
+    outline-offset: 1.5rem;
+}
+
+.create-new-file-btn:hover {
+    background: var(--th-hov-color);
+}
+
+.create-new-file-btn:active {
+    background: var(--th-color);
+}
+
+/* Cell */
+#createFile {
+    position: relative;
+}
+
+#createFile table {
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    font-family: monospace;
+    font-size: 1.6rem;
+}
+
+table th {
+    text-align: left;
+    padding: 0 1rem;
+}
+
+table input {
+    width: 18.8rem;
+    height: 2.5rem;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    font-family: monospace;
+    padding: 0 1rem;
+    color: var(--text-color);
+}
+
+table .roomName {
+    text-transform: capitalize;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.table-row {
+    margin-top: 50px;
+}
+
+.table-container {
+    margin-top: 0;
+}
+
+.alert-box .alert-text {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.alert-box .button-box {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.button-box .cell-back {
+    margin-left: 1rem;
+}
+
+.alert-box {
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.alert-box.cell,
+.alert-box.room {
+    transform-origin: center;
+}
+
+section .detail-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.detail-box .detail {
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    margin-top: .5rem;
+    height: 2.5rem;
+    text-transform: capitalize;
+    padding: 0 1rem;
+    background: transparent;
+    font-family: monospace;
+}
+
+/* Save list */
+.savelist-section table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 5rem auto;
+}
+
+.savelist-section table th,
+.savelist-section table td {
+    padding: .5rem;
+    color: var(--text-color);
+}
+
+.savelist-section table th {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Print styles */
+@media print {
+    header {
+        display: none;
+    }
+    .buttons-container {
+        display: none;
+    }
+    .row {
+        padding: 0 0;
+    }
+    table input {
+        background: transparent;
+    }
+    footer {
+        display: none;
+    }
+}
+
+/* Footer */
+footer {
+    background: var(--text-f-color);
+}
+
+footer .copyright {
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+footer .copyright abbr {
+    margin-left: 1rem;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1400px) {
+    .row {
+        padding: 0 5%;
+    }
+
+    section .main-box,
+    section .file-detail-box {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .row {
+        padding: 0 2.5%;
+    }
+
+    section .main-box,
+    section .file-detail-box {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .row {
+        padding: 0 2%;
+    }
+
+    section .main-box,
+    section .file-detail-box {
+        width: 90%;
+        padding: 3rem;
+    }
+
+    .btn {
+        padding: .5rem 4rem;
+    }
+
+    nav .row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-box ul {
+        flex-wrap: wrap;
+    }
+
+    .menu-box ul li {
+        margin-right: 1rem;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    section .main-box,
+    section .file-detail-box {
+        width: 95%;
+        padding: 2rem;
+    }
+
+    .btn {
+        padding: .5rem 3rem;
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    form input[type="search"],
+    form .detailInput {
+        height: 2.5rem;
+        font-size: 1.4rem;
+    }
+
+    form input[type="submit"] {
+        width: 8rem;
+        height: 2.5rem;
+        font-size: 1.4rem;
+    }
+
+    .create-new-file-btn {
+        font-size: 2.5rem;
+        padding: .5rem .7rem;
+        outline-offset: 1rem;
+    }
+
+    table input {
+        width: 100%;
+        margin-top: .5rem;
+    }
+
+    .detail-box .detail {
+        width: 100%;
+        font-size: 1.4rem;
+    }
+
+    .alert-box {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .alert-box .button-box {
+        flex-direction: column;
+    }
+
+    .button-box .cell-back {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .btn {
+        padding: .5rem 2rem;
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    form input[type="search"],
+    form .detailInput {
+        height: 2rem;
+        font-size: 1.2rem;
+    }
+
+    form input[type="submit"] {
+        width: 7rem;
+        height: 2rem;
+        font-size: 1.2rem;
+    }
+
+    .create-new-file-btn {
+        font-size: 2rem;
+        padding: .5rem .5rem;
+        outline-offset: .5rem;
+    }
+
+    .alert-box {
+        width: 95%;
+        padding: .5rem;
+    }
+
+    .alert-box .button-box {
+        flex-direction: column;
+    }
+
+    .button-box .cell-back {
+        margin-top: .5rem;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .btn {
+        padding: .5rem 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    form input[type="search"],
+    form .detailInput {
+        height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    form input[type="submit"] {
+        width: 6rem;
+        height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    .create-new-file-btn {
+        font-size: 1.8rem;
+        padding: .3rem .4rem;
+        outline-offset: .3rem;
+    }
+
+    .alert-box {
+        width: 100%;
+        padding: .3rem;
+    }
+
+    .alert-box .button-box {
+        flex-direction: column;
+    }
+
+    .button-box .cell-back {
+        margin-top: .3rem;
+        margin-left: 0;
+    }
+}
+
